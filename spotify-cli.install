@@ -1,0 +1,8 @@
+post_install() {
+  echo "Execute 'spotify-cli --help' para ver as opcoes de comando."
+  echo "Certifique-se de configurar suas credenciais do Spotify antes de usar com `spotify-cli config`."
+}
+
+post_upgrade() {
+  post_install
+}
