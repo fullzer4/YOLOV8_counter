@@ -1,6 +1,6 @@
 /target
 Cargo.lock
-./src
-./pkg
-./spotify-cli-1.0.0-1-x86_64.pkg.tar.zst
-./spotify-cli-1.0.0.tar.gz
+/src
+/pkg
+spotify-cli-1.0.0-1-x86_64.pkg.tar.zst
+spotify-cli-1.0.0.tar.gz
