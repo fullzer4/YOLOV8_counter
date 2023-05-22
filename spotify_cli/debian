@@ -1,0 +1,12 @@
+Source: spotify-cli
+Section: utils
+Priority: optional
+Maintainer: Gabriel Pelizzaro Pereira <Gabrielpelizzaro@gmail.com>
+Build-Depends: debhelper (>= 10), cargo
+Standards-Version: 3.9.8
+Homepage: https://github.com/fullzer4/SpotifyCLI
+
+Package: spotify-cli
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Cliente de linha de comando para o Spotify para tocar músicas
