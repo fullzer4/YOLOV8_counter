@@ -12,7 +12,7 @@ sha256sums=('6a3098f88062ca3bf93fe2bb303e14a27122eb56e9312224cab147ecd814e137')
 
 build() {
   cd "../spotify_cli"
-  cargo build --release --locked
+  cargo build --release --offline
 }
 
 package() {
