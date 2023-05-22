@@ -3,11 +3,12 @@ pkgver=1.0.0
 pkgrel=1
 pkgdesc="Cliente de linha de comando para o Spotify para tocar musicas"
 arch=('x86_64')
-url="https://github.com/seu-usuario/spotify-cli"
+url="https://github.com/fullzer4/SpotifyCLI"
 license=('MIT')
 depends=('rust')
 makedepends=('cargo')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/fullzer4/SpotifyCLI_CS50Final_project/blob/bf4d9e5ccb5c778e791602621b05649f22d98b1b/package/spotify-cli.tar.gz")
+source=("file://$PWD/package/spotify-cli.tar.gz")
+sha256sums=('6a3098f88062ca3bf93fe2bb303e14a27122eb56e9312224cab147ecd814e137')
 
 build() {
   cd "../spotify_cli"
