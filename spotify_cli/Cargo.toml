@@ -9,6 +9,8 @@ authors = ["Gabriel Pelizzaro Pereira <gabrielpelizzaro@gmail.com>"]
 [dependencies]
 reqwest = "0.11.18"
 rouille = "3.6.2"
+serde = { version ="1.0.163", features = ["derive"]}
+serde_json = "1.0.96"
 webbrowser = "0.8.10"
 
 

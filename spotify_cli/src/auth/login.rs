@@ -1,6 +1,7 @@
-use reqwest::{Client, Error, Response};
+use reqwest::{Client, Error};
 use webbrowser;
 use rouille;
+use serde_json::{Value as JsonValue};
 
 pub fn Login() {
     let client_id = "42c67d6d685a4a9095075a33a8c94eb3";
@@ -36,10 +37,16 @@ pub fn Login() {
                     code, redirect_uri, client_id, client_secret
                 );
 
+                let response = async {
+                    fetch_token(&client, token_url, body).await.expect("Erro na requisição")
+                };
+
                 async {
-                    let response = fetch_token(&client, token_url, body).await.expect("Erro na requisição");
-                    let token: TokenResponse = response.json().expect("Erro ao ler a resposta JSON");
-                    println!("Token de acesso: {}", token.access_token);
+                    let access_token = response.await["access_token"]
+                        .as_str()
+                        .expect("Token de acesso inválido")
+                        .to_owned();
+                    println!("Token de acesso: {}", access_token);
                 };
 
                 rouille::Response::text("Login concluído! Feche esta janela e volte para o terminal.").with_status_code(200)
@@ -50,11 +57,17 @@ pub fn Login() {
     }
 }
 
-async fn fetch_token(client: &Client, token_url: &str, body: String) -> Result<Response, Error> {
-    client
+async fn fetch_token(client: &Client, token_url: &str, body: String) -> Result<JsonValue, reqwest::Error> {
+    let response = client
         .post(token_url)
         .header("Content-Type", "application/x-www-form-urlencoded")
         .body(body)
         .send()
-        .await
+        .await?;
+
+    let body_text = response.text().await?;
+    let json_value: JsonValue = serde_json::from_str(&body_text)?;
+
+    Ok(json_value)
 }
+
