@@ -7,6 +7,10 @@ license = "MIT"
 authors = ["Gabriel Pelizzaro Pereira <gabrielpelizzaro@gmail.com>"]
 
 [dependencies]
+reqwest = "0.11.18"
+rouille = "3.6.2"
+webbrowser = "0.8.10"
+
 
 [build-dependencies]
 cargo-deb = "^1.43.1"
