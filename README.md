@@ -1,5 +1,7 @@
 ## SpotifyCLI_CS50Final_project
 
+Listen into your spotify account all your playlist and songs on your CLI :) hope you like this project.
+
 ### Arch installation
 
 ```bash
