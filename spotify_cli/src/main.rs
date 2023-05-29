@@ -16,13 +16,19 @@ fn main() {
     
             println!("Email:");
             io::stdin().read_line(&mut email).expect("Falha ao ler entrada");
-        
+            
             println!("");
 
             println!("Password: ");
             io::stdin().read_line(&mut password).expect("Falha ao ler entrada");
 
             // armazenar como variaveis de ambiente e realizar o login
+            
+
+
+            env::set_var("SPOTIFYCLI_EMAIL", &email);
+            env::set_var("SPOTIFYCLI_PASSWORD", &password);
+
         } else if arg == "play" {
         
             println!("play");
