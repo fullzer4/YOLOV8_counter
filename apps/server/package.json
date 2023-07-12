@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node index.ts"
+    "dev": "ts-node index.ts",
+    "build": "rm -rf build && tsc",
+    "start": "node ./build/index.js"
   },
   "dependencies": {
     "@fastify/autoload": "^5.7.1",
