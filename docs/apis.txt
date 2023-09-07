@@ -1,2 +1,0 @@
-mastercard - https://developer.mastercard.com/open-banking-connect/documentation/aisfeatures/get-account-transactions/
-
